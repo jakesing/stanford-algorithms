@@ -72,6 +72,12 @@ write
 python3 tester.py ./course/assignment/Dijkstra.py ./course/tests/dijkstra name=shortest_paths max_size=100000 only=random_22_100,random_23_100
 ```
 
+OR for a Jake specific example, given that I've saved everything in the repo here, the file path I used to call the tester for course1, assignment 2 was:
+
+```shell
+python 3 stanford-algs/testCases/tester/python3/tester.py divideAndConquer/arrayInversions.py testCases/testCases/course1/assignment2Inversions
+```
+
 ## Tester output
 
 The tester will give you some feedback before running the tests, to let you
