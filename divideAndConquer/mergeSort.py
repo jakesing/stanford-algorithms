@@ -1,3 +1,5 @@
+# code comes from: https://github.com/amirziai/learning/blob/master/algorithms/Merge-Sort.ipynb
+
 # Python program for implementation of MergeSort
 def split(input_list):
     """
@@ -11,6 +13,7 @@ def split(input_list):
 
 
 def merge_sorted_lists(list_left, list_right):
+    split_inv_count = 0
     """
     Merge two sorted lists
     This is a linear operation
@@ -35,9 +38,10 @@ def merge_sorted_lists(list_left, list_right):
             list_merged.append(list_left[index_left])
             index_left += 1
         else:
-            # Right value bigger
+            # Right value smaller
             list_merged.append(list_right[index_right])
             index_right += 1
+            splitInv.count += len(list_left) - index_left
 
         # If we are at the end of one of the lists we can take a shortcut
         if index_right == len(list_right):
@@ -50,9 +54,11 @@ def merge_sorted_lists(list_left, list_right):
             # Append the remainder of right and break
             list_merged += list_right[index_right:]
             break
-
     return list_merged
 
+
+class splitInv:
+    count = 0
 
 def merge_sort(input_list):
     if len(input_list) <= 1:
@@ -60,5 +66,9 @@ def merge_sort(input_list):
     else:
         left, right = split(input_list)
         # The following line is the most important piece in this whole thing
-        return merge_sorted_lists(merge_sort(left), merge_sort(right))
+        result = merge_sorted_lists(merge_sort(left), merge_sort(right))
+        return result
+
+
+
 
